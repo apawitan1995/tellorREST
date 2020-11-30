@@ -49,7 +49,7 @@ router.get('/:netName?/info', async function (req, res) {
 	var _totalSupply = await gettersContract.methods.getUintVar("0xb1557182e4359a1f0c6301278e8f5b35a776ab58d39892581e357578fb287836").call();
 	var _timeOfLastValue = await gettersContract.methods.getUintVar("0x97e6eb29f6a85471f7cc9b57f9e4c3deaf398cfc9798673160d7798baf0b13a4").call();
 	var _requestCount = await gettersContract.methods.getUintVar("0x05de9147d05477c0a5dc675aeea733157f5092f82add148cf39d579cafe3dc98").call();
-	var _fee = await gettersContract.methods.getUintVars("0x833b9f6abf0b529613680afe2a00fa663cc95cbdc47d726d85a044462eabbf02").call();
+	var _fee = await gettersContract.methods.getUintVar("0x833b9f6abf0b529613680afe2a00fa663cc95cbdc47d726d85a044462eabbf02").call();
 	res.send({
 		stakerCount: _stakerCount,
 		difficulty: _difficulty,
