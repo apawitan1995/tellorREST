@@ -49,7 +49,6 @@ router.get('/:netName?/info', async function (req, res) {
 	var _totalSupply = await gettersContract.methods.getUintVar("0xb1557182e4359a1f0c6301278e8f5b35a776ab58d39892581e357578fb287836").call();
 	var _timeOfLastValue = await gettersContract.methods.getUintVar("0x97e6eb29f6a85471f7cc9b57f9e4c3deaf398cfc9798673160d7798baf0b13a4").call();
 	var _requestCount = await gettersContract.methods.getUintVar("0x05de9147d05477c0a5dc675aeea733157f5092f82add148cf39d579cafe3dc98").call();
-	var _blockNumber = await gettersContract.methods.getDisputeVar("0x6f8f54d1af9b6cb8a219d88672c797f9f3ee97ce5d9369aa897fd0deb5e2dffa").call();
 	res.send({
 		stakerCount: _stakerCount,
 		difficulty: _difficulty,
@@ -57,8 +56,7 @@ router.get('/:netName?/info', async function (req, res) {
 		disputeCount: _disputeCount,
 		total_supply: _totalSupply,
 		timeOfLastNewValue: _timeOfLastValue,
-		requestCount: _requestCount,
-		blockNumber: _blockNumber
+		requestCount: _requestCount
 	})
 
 	//Allows user to save the API data requested to a file under the data folder
@@ -72,8 +70,7 @@ router.get('/:netName?/info', async function (req, res) {
 		disputeCount: _disputeCount,
 		total_supply: _totalSupply,
 		timeOfLastNewValue: _timeOfLastValue,
-		requestCount: _requestCount,
-		blockNumber: _blockNumber
+		requestCount: _requestCount
 	}
 	var jsonStats = JSON.stringify(state);
 	let filename = "public/state.json";
